@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPR Catering Services</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Madurai:wght@400;600;700&family=Mukta+Malar:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #D4AF37; /* Gold */
+            --secondary-color: #800020; /* Burgundy */
+            --dark-color: #1A1A1A;
+            --light-color: #FFFFFF;
+            --accent-color: #FF9933; /* Saffron */
+        }
+        
+        body {
+            font-family: 'Hind Madurai', sans-serif;
+            color: var(--dark-color);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Mukta Malar', sans-serif;
+            font-weight: 700;
+        }
+        
+        .navbar {
+            background-color: var(--light-color);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand {
+            font-family: 'Mukta Malar', sans-serif;
+            font-size: 1.8rem;
+            color: var(--secondary-color) !important;
+            font-weight: 700;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("images/leafimg.jpg");
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            color: var(--light-color);
+            display: flex;
+            align-items: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+        }
+        
+        .btn-primary {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+            padding: 12px 30px;
+            border-radius: 0;
+        }
+        
+        .btn-primary:hover {
+            background-color: transparent;
+            border-color: var(--light-color);
+        }
+        
+        .btn-accent {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+            color: white;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 50px;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 2px;
+            background-color: var(--accent-color);
+        }
+        
+        .service-card {
+            border: none;
+            transition: transform 0.3s;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-top: 4px solid var(--accent-color);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+        
+        .menu-item {
+            margin-bottom: 30px;
+        }
+        
+        .menu-item h5 {
+            border-bottom: 1px dashed #ddd;
+            padding-bottom: 10px;
+            color: var(--secondary-color);
+        }
+        
+        .testimonial-card {
+            background-color: #FFF9F0;
+            padding: 30px;
+            border-radius: 5px;
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        .testimonial-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--secondary-color);
+        }
+        
+        .gallery-item {
+            margin-bottom: 30px;
+            overflow: hidden;
+            border: 2px solid var(--secondary-color);
+        }
+        
+        .gallery-item img {
+            transition: transform 0.5s;
+            width: 100%;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .footer {
+            background-color: var(--secondary-color);
+            color: var(--light-color);
+            padding: 60px 0 20px;
+        }
+        
+        .footer-links a {
+            color: var(--light-color);
+            text-decoration: none;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.1);
+            margin-right: 10px;
+            transition: all 0.3s;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+        
+        .tamil-title {
+            font-family: 'Mukta Malar', sans-serif;
+            color: rgb(251, 9, 166)
+        }
+        
+        .traditional-pattern {
+           
+            background-color: #FFF9F0;
+            padding: 60px 0;
+        }
+        
+        .veg-icon {
+            color: green;
+            margin-right: 5px;
+        }
+        
+        .non-veg-icon {
+            color: red;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top py-3">
+        <div class="container">
+            <a class="navbar-brand" href="#">SPR-Caterings</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#menu">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#gallery">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+                <a href="#contact" class="btn btn-primary ms-lg-3">Book Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+        <div class="container">
+            <div class="hero-content text-center mx-auto">
+                <h1 class="display-4 mb-4 tamil-title">SPR</h1>
+                <h2 class="display-5 mb-4">Authentic Tamil Nadu Catering Services</h2>
+                <p class="lead mb-5">Experience the rich culinary heritage of Tamil Nadu with our traditional catering services for weddings, corporate events, and family functions.</p>
+                <div class="d-flex justify-content-center gap-3">
+                    <a href="#contact" class="btn btn-primary">Book Your Event</a>
+                    <a href="#menu" class="btn btn-accent">View Our Menus</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-5 traditional-pattern" id="about">
+        <div class="container py-5">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <img src="images/ABOUT.png" alt="Traditional Tamil Nadu food" class="img-fluid rounded shadow">
+                </div>
+                <div class="col-lg-6">      
+                    <h6 class="text-accent mb-3">ABOUT US</h6>
+                    <h2 class="mb-4">Preserving Tamil Culinary Traditions Since 2005</h2>
+                    <p class="mb-4"><B>SPR</B> brings generations of culinary expertise to your special occasions. Our family has been serving authentic Tamil cuisine in Chennai and across Tamil Nadu for over 25 years.</p>
+                    <ul class="list-unstyled mb-4">
+                        <li class="mb-2"><i class="fas fa-check-circle text-accent me-2"></i> Traditional recipes passed down through generations</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-accent me-2"></i> 100% hygienic preparation and service</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-accent me-2"></i> Customizable menus for all budgets</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-accent me-2"></i> Both vegetarian and non-vegetarian options</li>
+                    </ul>
+                    <a href="#services" class="btn btn-primary">Our Services</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="py-5 bg-light" id="services">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h6 class="text-accent mb-3">OUR SERVICES</h6>
+                    <h2 class="mb-5 section-title">Complete Catering Solutions</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card service-card h-100 py-4 px-3 text-center">
+                        <div class="card">
+                           <img src="images/mrgimg.png"/>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Weddings</h5>
+                            <p class="card-text">Traditional Tamil wedding feasts with authentic menu options for reception, muhurtham, and other ceremonies.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card service-card h-100 py-4 px-3 text-center">
+                        <div class="card">
+                            <img src="images/coorpo.jpg"/>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Corporate Events</h5>
+                            <p class="card-text">Professional catering for office parties, conferences, and corporate gatherings with South Indian specialties.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card service-card h-100 py-4 px-3 text-center">
+                        <div class="card">
+                            <img src="images/fameve.jpg"/>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Family Functions</h5>
+                            <p class="card-text">Birthdays, housewarmings, anniversaries, and other family celebrations with traditional Tamil hospitality.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <div class="card service-card h-100 py-4 px-3 text-center">
+                        <div class="card">
+                            <img src="images/dimondeve.jpg"/>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Dimond Wedding Anniversary</h5>
+                            <p class="card-text">Authentic Tamil Nadu meals served on banana leaves with all accompaniments.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card service-card h-100 py-4 px-3 text-center">
+                        <div class="card">
+                           <img src="images/birthday.jpg"/>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Birthday Event
+                            </h5>
+                            <p class="card-text">Daily tiffin delivery with variety rice options, curries, and accompaniments.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card service-card h-100 py-4 px-3 text-center">
+                        <div class="card">
+                            <img src="images/tempfest.jpg"/>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Temple Festivals</h5>
+                            <p class="card-text">Large-scale catering for temple festivals and religious events with satvik food options.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="py-5 traditional-pattern" id="menu">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h6 class="text-accent mb-3">OUR MENUS</h6>
+                    <h2 class="mb-5 section-title">Traditional Tamil Cuisine</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <h4 class="mb-4">Vegetarian Feast</h4>
+                    <div class="menu-item">
+                        <div class="d-flex justify-content-between">
+                            <h5><i class="fas fa-leaf veg-icon"></i>பேபி கான் குடைமிளகாய் மஞ்சூரியன்</h5>
+                            <span class="text-secondary">₹120</span>
+                        </div>
+                        <p>crispy, spicy Indo-Chinese appetizer made with fried baby corn</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="d-flex justify-content-between">
+                            <h5><i class="fas fa-leaf veg-icon"></i>வெஜ் இரால் 65</h5>
+                            <span class="text-secondary">₹150</span>
+                        </div>
+                        <p>veg styled “prawn” appetizer made by marinating plant based prawn pieces </p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="d-flex justify-content-between">
+                            <h5><i class="fas fa-leaf veg-icon"></i>வெஜ் வஞ்சரம் மீன் வறுவல்</h5>
+                            <span class="text-secondary">₹150</span>
+                        </div>
+                        <p> a vegetarian twist on the classic South Indian fish fry </p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="d-flex justify-content-between">
+                            <h5><i class="fas fa-leaf veg-icon"></i>வெஜ் சிக்கன் 65 </h5>
+                            <span class="text-secondary">₹150</span>
+                        </div>
+                        <p> a vegetarian take on the iconic South Indian “Chicken 65,” typically made using paneer</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="d-flex justify-content-between">
+                            <h5><i class="fas fa-leaf veg-icon"></i>கடாய் பன்னீர் கிரேவி</h5>
+                            <span class="text-secondary">₹200</span>
+                        </div>
+                        <p> A flavorful North Indian curry made by cooking paneer cubes and bell peppers</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="d-flex justify-content-between">
+                            <h5><i class="fas fa-leaf veg-icon"></i>Spl சுக்கா ரொட்டி</h5>
+                            <span class="text-secondary">₹80</span>
+                        </div>
+                        <p>“SPL Sukka Rotti is a spicy, dry-style ‘sukka’ curry</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="d-flex justify-content-between">
+                            <h5><i class="fas fa-leaf veg-icon"></i>பன் பரோட்டா</h5>
+                            <span class="text-secondary">₹80</span>
+                        </div>
+                        <p>a soft, airy South Indian flatbread shaped like a bun, made from maida dough </p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="d-flex justify-content-between">
+                            <h5><i class="fas fa-leaf veg-icon"></i>நூல் பரொட்டா</h5>
+                            <span class="text-secondary">₹80</span>
+                        </div>
+                        <p>a layered flatbread made by rolling out extremely thin sheets of maida dough</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <h4 class="mb-4">Non-Vegetarian Specials</h4>
+                    <div class="menu-item">
+                        <div class="d-flex justify-content-between">
+                            <h5><i class="fas fa-drumstick-bite non-veg-icon"></i>சிக்கன் செட்டிநாடு வறுவல்</h5>
+                            <span class="text-secondary">₹250</span>
+                        </div>
+                        <p>Chettinad style chicken curry with parotta</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="d-flex justify-content-between">
+                            <h5><i class="fas fa-drumstick-bite non-veg-icon"></i>மட்டன் கோலா உரூன்டை</h5>
+                            <span class="text-secondary">₹280</span>
+                        </div>
+                        <p>A Chettinad-style delicacy spicy minced mutton (keema) mixed with kola masala</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="d-flex justify-content-between">
+                            <h5><i class="fas fa-drumstick-bite non-veg-icon"></i>மட்டன் சுக்கா</h5>
+                            <span class="text-secondary">₹300</span>
+                        </div>
+                        <p>Mutton sukka with onion raita</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="d-flex justify-content-between">
+                            <h5><i class="fas fa-drumstick-bite non-veg-icon"></i>பெப்பர் சிக்கன்</h5>
+                            <span class="text-secondary">₹220</span>
+                        </div>
+                        <p>A bold South Indian dry curry where chicken pieces are stir‑fried with onions</p>
+                    </div>
+                     <div class="menu-item">
+                        <div class="d-flex justify-content-between">
+                            <h5><i class="fas fa-drumstick-bite non-veg-icon"></i>சிக்கன் லாலிபாப்</h5>
+                            <span class="text-secondary">₹220</span>
+                        </div>
+                        <p> an Indo‑Chinese style appetizer where chicken wing or drumette pieces are 'frenched'</p>
+                    </div>
+                     <div class="menu-item">
+                        <div class="d-flex justify-content-between">
+                            <h5><i class="fas fa-drumstick-bite non-veg-icon"></i>Spl சிக்கன் கிரேவி</h5>
+                            <span class="text-secondary">₹220</span>
+                        </div>
+                        <p> a rich and flavorful Indian curry where tender chicken pieces are simmered </p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="d-flex justify-content-between">
+                            <h5><i class="fas fa-drumstick-bite non-veg-icon"></i>Spl மட்டன் பிரியாணி   </h5>
+                            <span class="text-secondary">₹220</span>
+                        </div>
+                        <p> an aromatic, celebratory South Asian rice dish where tender mutton pieces marinated in yogurt </p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="d-flex justify-content-between">
+                            <h5><i class="fas fa-drumstick-bite non-veg-icon"></i>Spl சிக்கன் பிரியாணி</h5>
+                            <span class="text-secondary">₹220</span>
+                        </div>
+                        <p>richly spiced, juicy, and aromatic dish that pairs beautifully with raita or salan</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <a href="#" class="btn btn-primary me-3">Full Vegetarian Menu</a>
+                <a href="#" class="btn btn-accent">Full Non-Veg Menu</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-5 bg-light">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h6 class="text-accent mb-3">CLIENT TESTIMONIALS</h6>
+                    <h2 class="mb-5 section-title">What Our Clients Say</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <div class="testimonial-card h-100">
+                        <div class="text-center mb-4">
+                            <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Client" class="testimonial-img">
+                        </div>
+                        <p class="mb-4">"<B>SPR </B>catered my daughter's wedding in Chennai. The food was exactly like how my grandmother used to make - authentic and full of flavor."</p>
+                        <h6>ராதா கிருஷ்ணன்</h6>
+                        <p class="text-muted">Chennai</p>
+                        <div class="text-warning">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <div class="testimonial-card h-100">
+                        <div class="text-center mb-4">
+                            <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Client" class="testimonial-img">
+                        </div>
+                        <p class="mb-4">"We hired them for our corporate event in Coimbatore. The Chettinad meals were a big hit with our international clients who wanted to experience local cuisine."</p>
+                        <h6>அருண் சுப்பிரமணியன்</h6>
+                        <p class="text-muted">Coimbatore</p>
+                        <div class="text-warning">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="testimonial-card h-100">
+                        <div class="text-center mb-4">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Client" class="testimonial-img">
+                        </div>
+                        <p class="mb-4">"For our family function in Madurai, they prepared an amazing spread of traditional Tamil Brahmin cuisine. The service was impeccable."</p>
+                        <h6>லலிதா ஐயர்</h6>
+                        <p class="text-muted">Madurai</p>
+                        <div class="text-warning">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="py-5" id="gallery">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h6 class="text-accent mb-3">GALLERY</h6>
+                    <h2 class="mb-5 section-title">Our Recent Events</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-6 gallery-item">
+                    <img src="images/eventarr.jpg" alt="Traditional Tamil food" class="img-fluid">
+                </div>
+                <div class="col-md-4 col-6 gallery-item">
+                    <img src="images/Untitled design.png" alt="Banana leaf meal" class="img-fluid">
+                </div>
+                <div class="col-md-4 col-6 gallery-item">
+                    <img src="images/arranguni.jpg" alt="South Indian dishes" class="img-fluid">
+                </div>
+                <div class="col-md-4 col-6 gallery-item">
+                    <img src="images/cateringbo.jpg" alt="Tamil wedding food" class="img-fluid">
+                </div>
+                <div class="col-md-4 col-6 gallery-item">
+                    <img src="images/crew.jpg" alt="Idli and chutney" class="img-fluid">
+                </div>
+                <div class="col-md-4 col-6 gallery-item">
+                    <img src="images/serving.jpg" alt="Dosa preparation" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+   
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <h4 class="mb-4">SPR</h4>
+                    <p>Bringing authentic Tamil Nadu culinary traditions to your special occasions since 2005.</p>
+                    <a href="https://maps.app.goo.gl/aewgZm8CEPFmfwsRA"><i class="fa-solid fa-location-dot  mt-5"></i></a>
+                    <p> Main Road Kuttiyankuppam, Edappalayam Thukkanampakkam Post, Cuddalore Distrisct.</p>
+                </div>
+                <div class="col ms-5 mt-5">
+                   <div class="mt-4">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col">
+                    <i class="fa-solid fa-phone"></i><p><strong style="font-size: 22px;"> Contact:  9626914870<br class="soffa">9865737570</strong></p>
+                    <i class="fa-solid fa-envelope mt-5"></i><p><strong style="font-size: 22px;">Email:pandurangan502@gmail.com</strong></p>
+                    
+                </div>
+            </div>
+            <hr class="my-5 bg-light">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2023 SPR Catering. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <a href="#" class="text-white me-3">Privacy Policy</a>
+                    <a href="#" class="text-white">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Navbar background change on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-white');
+                navbar.classList.add('shadow-sm');
+            } else {
+                navbar.classList.remove('bg-white');
+                navbar.classList.remove('shadow-sm');
+            }
+        });
+    </script>
+</body>
+</html>
